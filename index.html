@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thaíse Rodolfo · Fisioterapia Dermatofuncional</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <style>
+        /* ============================================================
+           RESET E VARIÁVEIS (Paleta Dermatofuncional - Thaíse)
+           ============================================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Cores baseadas na logo e postagens da Thaíse */
+            --dourado: #C5A059;
+            --dourado-claro: #E8D5A5;
+            --dourado-escuro: #9A7B3E;
+            --nude: #FCEEE9;
+            --nude-escuro: #F3E3D3;
+            --fundo: #FAFAFA;
+            --texto: #2C2C2C;
+            --texto-suave: #5A576A;
+            --branco: #FFFFFF;
+            --sombra: 0 10px 30px rgba(197, 160, 89, 0.08);
+            --radius: 16px;
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--fundo);
+            color: var(--texto);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .bg-nude { background-color: var(--nude); }
+        .bg-branco { background-color: var(--branco); }
+        .mt-8 { margin-top: 8px; }
+        .mt-20 { margin-top: 20px; }
+
+        /* ============================================================
+           BOTÕES
+           ============================================================ */
+        .btn-primario {
+            background: linear-gradient(135deg, var(--dourado), var(--dourado-escuro));
+            color: var(--branco);
+            border: none;
+            padding: 14px 38px;
+            border-radius: 4px; /* Botão levemente mais quadrado para estética premium */
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-block;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .btn-primario:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(197, 160, 89, 0.4);
+            filter: brightness(1.1);
+        }
+
+        .btn-secundario {
+            background: transparent;
+            color: var(--dourado-escuro);
+            border: 1px solid var(--dourado);
+            padding: 13px 36px;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-block;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .btn-secundario:hover {
+            background: var(--nude);
+            transform: translateY(-2px);
+        }
+
+        /* ============================================================
+           SEÇÕES
+           ============================================================ */
+        section {
+            padding: 80px 0;
+        }
+
+        .titulo-secao {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 2.4rem;
+            color: var(--texto);
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        .titulo-secao span {
+            color: var(--dourado-escuro);
+            font-style: italic;
+        }
+        .subtitulo-secao {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 44px;
+            color: var(--texto-suave);
+            font-size: 1.05rem;
+            font-weight: 300;
+        }
+
+        /* ============================================================
+           HERO
+           ============================================================ */
+        .hero {
+            background: linear-gradient(120deg, var(--nude) 0%, var(--branco) 100%);
+            padding: 90px 0 60px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--dourado-claro);
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-conteudo h1 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 3rem;
+            color: var(--texto);
+            line-height: 1.15;
+        }
+        .hero-conteudo h1 .destaque {
+            color: var(--dourado-escuro);
+            font-style: italic;
+        }
+        .hero-conteudo p {
+            font-size: 1.1rem;
+            color: var(--texto-suave);
+            margin: 20px 0 30px;
+            max-width: 450px;
+            line-height: 1.8;
+        }
+        .hero-botoes {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .hero-foto {
+            display: flex;
+            justify-content: flex-end;
+            position: relative;
+        }
+        
+        /* Moldura de estilo "Arco" muito usada em clínicas de estética */
+        .moldura-foto {
+            width: 380px;
+            height: 480px;
+            border-radius: 200px 200px 0 0;
+            padding: 8px;
+            background: linear-gradient(to bottom, var(--dourado), transparent);
+            position: relative;
+        }
+        .moldura-foto img {
+            width: 100%;
+            height: 100%;
+            border-radius: 200px 200px 0 0;
+            object-fit: cover;
+            display: block;
+            border: 4px solid var(--branco);
+        }
+
+        .selos-hero {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .selo {
+            background: var(--branco);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--dourado-escuro);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid var(--dourado-claro);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ============================================================
+           SOBRE MIM
+           ============================================================ */
+        .sobre-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .sobre-grid img {
+            width: 100%;
+            height: 550px;
+            object-fit: cover;
+            border-radius: 4px;
+            box-shadow: var(--sombra);
+        }
+        .sobre-grid h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--texto);
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .sobre-grid h3 span {
+            color: var(--dourado-escuro);
+            font-style: italic;
+        }
+        .sobre-grid p {
+            margin-bottom: 16px;
+            color: var(--texto-suave);
+        }
+        .sobre-grid .lista-formacao {
+            list-style: none;
+            margin-top: 20px;
+            border-top: 1px solid var(--nude-escuro);
+            padding-top: 20px;
+        }
+        .sobre-grid .lista-formacao li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--texto);
+            font-weight: 500;
+        }
+        .sobre-grid .lista-formacao li::before {
+            content: '✨';
+            color: var(--dourado);
+            font-size: 1rem;
+        }
+
+        /* ============================================================
+           ESPECIALIDADES
+           ============================================================ */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: var(--branco);
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: var(--sombra);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid var(--nude);
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--dourado-claro);
+            box-shadow: 0 15px 35px rgba(197, 160, 89, 0.15);
+        }
+        .card-img-area {
+            width: 100%;
+            aspect-ratio: 3 / 4; 
+            background: var(--nude);
+            border-radius: 4px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .card-img-area img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        .card:hover .card-img-area img {
+            transform: scale(1.05);
+        }
+        .card h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            color: var(--texto);
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+        .card p {
+            font-size: 0.95rem;
+            color: var(--texto-suave);
+            font-weight: 300;
+        }
+
+        .chamada-harmonizacao {
+            background: linear-gradient(135deg, var(--branco), var(--nude));
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 40px;
+            border: 1px solid var(--dourado-claro);
+            box-shadow: var(--sombra);
+        }
+        .chamada-harmonizacao h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--texto);
+        }
+        .chamada-harmonizacao p {
+            max-width: 600px;
+            margin: 12px auto 24px;
+            color: var(--texto-suave);
+            font-size: 1.05rem;
+        }
+
+        /* ============================================================
+           GALERIA
+           ============================================================ */
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 30px;
+        }
+        .galeria-item {
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: var(--sombra);
+            transition: var(--transition);
+            height: 350px;
+            background: var(--fundo);
+            position: relative;
+        }
+        .galeria-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Na estética, cover costuma ficar melhor para antes/depois se a arte tiver borda */
+            transition: var(--transition);
+            display: block;
+        }
+        .galeria-item:hover img {
+            transform: scale(1.03);
+        }
+
+        /* ============================================================
+           CARROSSEL DE VÍDEOS
+           ============================================================ */
+        .video-carrossel-wrapper {
+            position: relative;
+            margin-top: 30px;
+        }
+        .video-carrossel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 24px;
+            padding-bottom: 20px;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+        .video-item {
+            flex: 0 0 auto;
+            width: 85%;
+            max-width: 320px; /* Formato retrato para procedimentos estéticos (Stories) */
+            scroll-snap-align: center;
+            background: var(--branco);
+            border-radius: 8px;
+            box-shadow: var(--sombra);
+            overflow: hidden;
+            border: 1px solid var(--nude);
+        }
+        .video-item video {
+            width: 100%;
+            height: 500px; 
+            border: 0;
+            display: block;
+            object-fit: cover; 
+            background-color: #000;
+        }
+        .video-item .video-descricao {
+            padding: 16px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--texto);
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+        }
+        .carrossel-btn {
+            position: absolute;
+            top: 45%;
+            transform: translateY(-50%);
+            background: var(--branco);
+            border: 1px solid var(--dourado-claro);
+            color: var(--dourado-escuro);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 10px 14px;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            z-index: 10;
+        }
+        .carrossel-btn:hover {
+            background: var(--nude);
+            color: var(--texto);
+        }
+        .carrossel-btn.esquerda { left: 0; }
+        .carrossel-btn.direita { right: 0; }
+
+        /* ============================================================
+           FAQ
+           ============================================================ */
+        .faq-item {
+            background: var(--branco);
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            margin-bottom: 16px;
+            overflow: hidden;
+            border: 1px solid var(--nude-escuro);
+        }
+        .faq-item .pergunta {
+            padding: 20px 24px;
+            font-weight: 500;
+            color: var(--texto);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+            font-size: 1.05rem;
+        }
+        .faq-item .pergunta:hover {
+            background: var(--nude);
+        }
+        .faq-item .pergunta .seta {
+            transition: transform 0.3s ease;
+            color: var(--dourado-escuro);
+        }
+        .faq-item .pergunta.aberto .seta {
+            transform: rotate(180deg);
+        }
+        .faq-item .resposta {
+            padding: 0 24px 24px;
+            display: none;
+            color: var(--texto-suave);
+            border-top: 1px solid var(--nude);
+            padding-top: 16px;
+            line-height: 1.8;
+        }
+        .faq-item .resposta.aberto {
+            display: block;
+        }
+
+        /* ============================================================
+           CONTATO
+           ============================================================ */
+        .contato-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 30px;
+            background: var(--branco);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: var(--sombra);
+            border-top: 4px solid var(--dourado);
+        }
+        .contato-info p {
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--texto-suave);
+            font-size: 1.05rem;
+        }
+        .contato-info a {
+            color: var(--dourado-escuro);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .contato-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* ============================================================
+           RODAPÉ
+           ============================================================ */
+        .rodape {
+            background: var(--texto);
+            padding: 50px 0;
+            text-align: center;
+        }
+        .rodape-titulo {
+            margin-bottom: 8px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--dourado);
+            font-weight: 600;
+        }
+        .rodape-subtitulo {
+            font-size: 1rem;
+            color: #A0A0A0;
+            margin-bottom: 24px;
+        }
+        .rodape-creditos {
+            font-size: 0.85rem;
+            color: #666;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        /* ============================================================
+           BOTÃO FLUTUANTE WHATSAPP
+           ============================================================ */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: var(--branco);
+            padding: 14px 24px;
+            border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        .whatsapp-float:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
+        }
+
+        /* ============================================================
+           RESPONSIVO
+           ============================================================ */
+        @media (max-width: 900px) {
+            .hero-grid, .sobre-grid, .contato-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+            .hero-conteudo p, .sobre-grid p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-foto {
+                justify-content: center;
+                order: -1;
+            }
+            .hero-botoes, .selos-hero, .sobre-grid .lista-formacao li, .contato-info p {
+                justify-content: center;
+            }
+            .moldura-foto {
+                width: 300px;
+                height: 380px;
+            }
+            .hero-conteudo h1 {
+                font-size: 2.4rem;
+            }
+            .sobre-grid img {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            section { padding: 50px 0; }
+            .titulo-secao { font-size: 2rem; }
+            .moldura-foto {
+                width: 260px;
+                height: 330px;
+            }
+            .btn-primario, .btn-secundario {
+                width: 100%;
+                text-align: center;
+            }
+            .video-item {
+                width: 90%;
+            }
+            .video-item video {
+                height: 450px;
+            }
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <!-- ============================================================
+        HERO
+        ============================================================ -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-conteudo">
+                    <h1>
+                        Thaíse <span class="destaque">Rodolfo</span>
+                    </h1>
+                    <p>
+                        A harmonização com naturalidade é a essência da verdadeira beleza. Descubra a sua melhor versão através da fisioterapia dermatofuncional.
+                    </p>
+                    <div class="hero-botoes">
+                        <!-- Substitua SEU_NUMERO pelo número do WhatsApp dela -->
+                        <a href="https://wa.me/55SEUNUMERO" target="_blank" class="btn-primario">Agendar Avaliação</a>
+                        <a href="#especialidades" class="btn-secundario">Ver Procedimentos</a>
+                    </div>
+                    <div class="selos-hero">
+                        <span class="selo">🌸 Dermatofuncional</span>
+                        <span class="selo">✨ Naturalidade</span>
+                    </div>
+                </div>
+                <div class="hero-foto">
+                    <div class="moldura-foto">
+                        <!-- INSERIR FOTO DA THAÍSE AQUI (Foto vertical elegante) -->
+                        <img src="https://i.postimg.cc/ydFSzLyX/1788463613822.jpg" alt="Fisioterapeuta Thaíse Rodolfo" width="380" height="480" decoding="async" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        SOBRE MIM
+        ============================================================ -->
+        <section id="sobre" class="bg-branco">
+            <div class="container">
+                <h2 class="titulo-secao">Sobre a <span>Thaíse</span></h2>
+                <div class="sobre-grid">
+                    <!-- INSERIR FOTO DELA NO CONSULTÓRIO OU ATENDENDO -->
+                    <img src="https://i.postimg.cc/SEU-LINK-SOBRE-AQUI.jpg" alt="Thaíse Rodolfo em atendimento" width="600" height="550" decoding="async" />
+                    <div>
+                        <h3>Cuidando da sua <span>essência</span></h3>
+                        <p>
+                            Sou Thaíse Rodolfo, Fisioterapeuta apaixonada por realçar o que há de mais belo em cada paciente, sempre prezando pela saúde da pele e pelo contorno natural do corpo e do rosto.
+                        </p>
+                        <p>
+                            Acredito que os procedimentos estéticos não existem para transformar quem você é, mas sim para resgatar a sua autoestima, suavizar as marcas do tempo e prevenir o envelhecimento de forma elegante e segura.
+                        </p>
+                        
+                        <ul class="lista-formacao">
+                            <li>Fisioterapeuta Especializada</li>
+                            <li>Pós Graduada em Fisioterapia Dermatofuncional</li>
+                            <li>Especialista em Harmonização Natural</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        ESPECIALIDADES (Procedimentos)
+        ============================================================ -->
+         <section id="especialidades" class="bg-nude">
+            <div class="container">
+                <h2 class="titulo-secao">Meus <span>Procedimentos</span></h2>
+                <p class="subtitulo-secao">
+                    Tratamentos faciais e corporais personalizados para os seus objetivos estéticos.
+                </p>
+                <div class="cards-grid">
+                    
+                    <!-- CARD 1: BOTOX -->
+                    <div class="card">
+                        <div class="card-img-area">
+                            <!-- Inserir imagem de aplicação de botox ou rosto limpo -->
+                            <img src="https://i.postimg.cc/SEU-LINK-BOTOX-AQUI.jpg" alt="Toxina Botulínica" loading="lazy" decoding="async" />
+                        </div>
+                        <h4>Toxina Botulínica</h4>
+                        <p>Prevenção e tratamento de linhas de expressão para um rosto descansado, jovem e sem perder a naturalidade.</p>
+                    </div>
+
+                    <!-- CARD 2: LIMPEZA DE PELE -->
+                    <div class="card">
+                        <div class="card-img-area">
+                            <!-- Inserir imagem de skincare / limpeza de pele -->
+                            <img src="https://i.postimg.cc/SEU-LINK-PELE-AQUI.jpg" alt="Limpeza de Pele Profunda" loading="lazy" decoding="async" />
+                        </div>
+                        <h4>Limpeza de Pele</h4>
+                        <p>Renovação celular, remoção de impurezas e hidratação profunda. O primeiro passo para uma pele perfeita e iluminada.</p>
+                    </div>
+
+                    <!-- CARD 3: PROTOCOLO DE GORDURA -->
+                    <div class="card">
+                        <div class="card-img-area">
+                            <!-- Inserir imagem corporal / equipamento de estética -->
+                              <img src="https://i.postimg.cc/SEU-LINK-GORDURA-AQUI.jpg" alt="Protocolo de Gordura Localizada" loading="lazy" decoding="async" />
+                        </div>
+                        <h4>Protocolo Corporal</h4>
+                        <p>Tratamentos avançados para redução de medidas, gordura localizada e melhora do contorno corporal.</p>
+                    </div>
+                </div>
+
+                <div class="chamada-harmonizacao">
+                    <h3>✨ Realce sua <span>Beleza</span></h3>
+                    <p>Cada pele conta uma história. Agende sua avaliação estética para criarmos um protocolo exclusivo e ideal para a anatomia do seu rosto e corpo.</p>
+                    <a href="https://wa.me/55SEUNUMERO" target="_blank" class="btn-primario mt-8">Quero agendar minha avaliação</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        GALERIA (Antes e Depois)
+        ============================================================ -->
+        <section id="galeria" class="bg-branco">
+            <div class="container">
+                <h2 class="titulo-secao">Resultados que <span>Inspiram</span></h2>
+                <p class="subtitulo-secao">
+                    Alguns dos protocolos faciais e corporais realizados no consultório.
+                </p>
+                <div class="galeria-grid">
+                    <!-- Substitua os links pelas fotos de ANTES/DEPOIS dela (formato 4:3 ou quadrado é ideal) -->
+                    <div class="galeria-item">
+                        <img src="https://i.postimg.cc/LINK-ANTES-DEPOIS-1.jpg" alt="Resultado de Tratamento Estético" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="galeria-item">
+                        <img src="https://i.postimg.cc/LINK-ANTES-DEPOIS-2.jpg" alt="Resultado Protocolo de Gordura" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="galeria-item">
+                        <img src="https://i.postimg.cc/LINK-ANTES-DEPOIS-3.jpg" alt="Resultado Toxina Botulínica" loading="lazy" decoding="async" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        VÍDEOS (Resultados em Movimento)
+        ============================================================ -->
+        <section id="videos" class="bg-nude">
+            <div class="container">
+                <h2 class="titulo-secao">Cuidado em <span>Detalhes</span></h2>
+                <p class="subtitulo-secao">
+                    Acompanhe um pouco da rotina e da precisão técnica dos atendimentos.
+                </p>
+                
+                <div class="video-carrossel-wrapper">
+                    <button class="carrossel-btn esquerda" onclick="moverCarrossel(-1)" aria-label="Anterior">‹</button>
+                    <div class="video-carrossel" id="videoCarrossel">
+                        
+                        <!-- VÍDEO 1 -->
+                        <div class="video-item">
+                            <video controls loop playsinline preload="metadata">
+                                <source src="caminho-video-botox.mp4" type="video/mp4">
+                                Seu navegador não suporta a tag de vídeo.
+                            </video>
+                            <div class="video-descricao">Aplicação de Toxina Botulínica</div>
+                        </div>
+
+                        <!-- VÍDEO 2 -->
+                        <div class="video-item">
+                            <video controls loop playsinline preload="metadata">
+                                <source src="caminho-video-corporal.mp4" type="video/mp4">
+                                Seu navegador não suporta a tag de vídeo.
+                            </video>
+                            <div class="video-descricao">Protocolo de Redução de Medidas</div>
+                        </div>
+
+                        <!-- VÍDEO 3 -->
+                        <div class="video-item">
+                            <video controls loop playsinline preload="metadata">
+                                <source src="caminho-video-facial.mp4" type="video/mp4">
+                                Seu navegador não suporta a tag de vídeo.
+                            </video>
+                            <div class="video-descricao">Preparo e Cuidados com a Pele</div>
+                        </div>
+                        
+                    </div>
+                    <button class="carrossel-btn direita" onclick="moverCarrossel(1)" aria-label="Próximo">›</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        FAQ
+        ============================================================ -->
+        <section id="faq" class="bg-branco">
+            <div class="container">
+                <h2 class="titulo-secao">Dúvidas <span>Frequentes</span></h2>
+                <p class="subtitulo-secao">Tudo o que você precisa saber antes de iniciar seu protocolo.</p>
+
+                <div class="faq-item">
+                    <div class="pergunta" onclick="toggleFaq(this)">
+                        <span>Como funciona a avaliação dermatofuncional?</span>
+                        <span class="seta">▼</span>
+                    </div>
+                    <div class="resposta">
+                        Na avaliação, analiso as características únicas da sua pele e anatomia, escuto seus objetivos e traçamos juntas um plano de tratamento personalizado para garantir os resultados mais harmônicos possíveis.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="pergunta" onclick="toggleFaq(this)">
+                        <span>Quanto tempo dura o efeito do Botox?</span>
+                        <span class="seta">▼</span>
+                    </div>
+                    <div class="resposta">
+                        A durabilidade da toxina botulínica varia de acordo com o metabolismo e hábitos de cada paciente, mas em média os resultados permanecem visíveis de 3 a 5 meses. É importante fazer a manutenção no período adequado.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="pergunta" onclick="toggleFaq(this)">
+                        <span>Os procedimentos faciais doem?</span>
+                        <span class="seta">▼</span>
+                    </div>
+                    <div class="resposta">
+                        A grande maioria dos procedimentos é super tolerável. Para aplicações injetáveis, utilizo técnicas delicadas e recursos anestésicos tópicos para garantir o seu máximo conforto durante toda a sessão.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="pergunta" onclick="toggleFaq(this)">
+                        <span>Preciso de algum cuidado pós-procedimento?</span>
+                        <span class="seta">▼</span>
+                    </div>
+                    <div class="resposta">
+                        Sim, cada protocolo tem orientações específicas que serão passadas no consultório. Em geral, recomenda-se evitar exposição solar intensa, uso de protetor solar e, em casos de botox, evitar deitar ou fazer esforço físico nas primeiras horas.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        CONTATO
+        ============================================================ -->
+        <section id="contato" class="bg-fundo">
+            <div class="container">
+                <h2 class="titulo-secao">Agende sua <span>Sessão</span></h2>
+                <p class="subtitulo-secao">Dê o primeiro passo para resgatar a sua melhor versão.</p>
+                
+                <div class="contato-grid">
+                    <div class="contato-info">
+                        <p>📍 <strong>Localização:</strong> [Inserir Endereço do Consultório da Thaíse]</p>
+                        <p>📱 <strong>WhatsApp:</strong> <a href="https://wa.me/55SEUNUMERO" target="_blank">[Inserir Número]</a></p>
+                        <p>📷 <strong>Instagram:</strong> <a href="https://www.instagram.com/fisio.thaiserodolfo" target="_blank">@fisio.thaiserodolfo</a></p>
+                        <p>🕒 <strong>Atendimento:</strong> Com hora marcada para total exclusividade.</p>
+                        
+                        <a href="https://wa.me/55SEUNUMERO" target="_blank" class="btn-primario mt-20">
+                            Falar no WhatsApp
+                        </a>
+                    </div>
+                    <div>
+                        <!-- Substitua o src pelo iframe do Google Maps do consultório dela -->
+                        <iframe style="width: 100%; height: 260px; border-radius: 8px; border: 0;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117578.47285642533!2d-43.63943362141512!3d-22.905658117765176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9be432d9dbf45d%3A0xeab4e1d75f284c00!2sCampo%20Grande%2C%20Rio%20de%20Janeiro%20-%20RJ!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============================================================
+    RODAPÉ
+    ============================================================ -->
+    <footer class="rodape">
+        <div class="container">
+            <p class="rodape-titulo">Thaíse Rodolfo</p>
+            <p class="rodape-subtitulo">Fisioterapia Dermatofuncional & Estética Avançada</p>
+            
+            <p class="rodape-creditos">
+                &copy; 2024 Thaíse Rodolfo. Todos os direitos reservados.<br>
+                Desenvolvido por <strong>Leone DiCamp</strong>
+            </p>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+    BOTÃO FLUTUANTE DO WHATSAPP
+    ============================================================ -->
+    <a href="https://wa.me/55SEUNUMERO" class="whatsapp-float" target="_blank" aria-label="Agendar Avaliação pelo WhatsApp">
+        💬 Agendar Avaliação
+    </a>
+
+    <!-- ============================================================
+    SCRIPTS
+    ============================================================ -->
+    <script>
+        function toggleFaq(elemento) {
+            const resposta = elemento.nextElementSibling;
+            const seta = elemento.querySelector('.seta');
+            
+            elemento.classList.toggle('aberto');
+            
+            if (resposta.style.display === 'block') {
+                resposta.style.display = 'none';
+                seta.style.transform = 'rotate(0deg)';
+            } else {
+                resposta.style.display = 'block';
+                seta.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        function moverCarrossel(direcao) {
+            const carrossel = document.getElementById('videoCarrossel');
+            const scrollAmount = window.innerWidth > 768 ? 350 : 280; 
+            
+            carrossel.scrollBy({
+                left: direcao * scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>
