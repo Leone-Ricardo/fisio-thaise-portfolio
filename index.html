@@ -50,6 +50,37 @@
         .mt-20 { margin-top: 20px; }
 
         /* ============================================================
+           CABEÇALHO E LOGO
+           ============================================================ */
+        .cabecalho {
+            background-color: var(--branco);
+            padding: 16px 0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .cabecalho .container {
+            display: flex;
+            justify-content: center; /* Logotipo centralizado para elegância */
+            align-items: center;
+        }
+        .logo {
+            display: block;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .logo:hover {
+            opacity: 0.8;
+        }
+        .logo img {
+            height: 50px; /* Tamanho elegante para desktop */
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* ============================================================
            BOTÕES
            ============================================================ */
         .btn-primario {
@@ -127,7 +158,7 @@
            ============================================================ */
         .hero {
             background: linear-gradient(120deg, var(--nude) 0%, var(--branco) 100%);
-            padding: 90px 0 60px;
+            padding: 80px 0 60px;
             position: relative;
             overflow: hidden;
             border-bottom: 1px solid var(--dourado-claro);
@@ -556,7 +587,7 @@
         }
 
         /* ============================================================
-           RESPONSIVO (Ajustes finos para Celulares e Tablets)
+           RESPONSIVO
            ============================================================ */
         @media (max-width: 768px) {
             .hero-grid, .sobre-grid, .contato-grid {
@@ -568,7 +599,6 @@
                 order: -1;
                 justify-content: center;
             }
-            /* Redução do Arco para caber na tela sem gerar scroll lateral */
             .moldura-foto {
                 width: 260px;
                 height: 340px;
@@ -596,7 +626,6 @@
             .subtitulo-secao {
                 margin-bottom: 32px;
             }
-            /* Reduzindo o padding enorme das caixas de destaque */
             .chamada-harmonizacao {
                 padding: 24px 16px;
                 margin-top: 24px;
@@ -618,7 +647,10 @@
 
         @media (max-width: 480px) {
             .container {
-                padding: 0 16px; /* Mais respiro nas bordas laterais do celular */
+                padding: 0 16px;
+            }
+            .logo img {
+                height: 40px; /* Logotipo um pouco menor no celular para não roubar espaço */
             }
             .moldura-foto {
                 width: 240px;
@@ -627,7 +659,6 @@
             .hero-conteudo h1 {
                 font-size: 2rem;
             }
-            /* Forçando os botões a usarem 100% da tela para facilitar o clique */
             .hero-botoes {
                 flex-direction: column;
                 width: 100%;
@@ -636,7 +667,6 @@
                 width: 100%;
                 text-align: center;
             }
-            /* Forçando cards a 1 coluna para não espremer imagens */
             .cards-grid, .galeria-grid {
                 grid-template-columns: 1fr;
             }
@@ -646,7 +676,6 @@
             .video-item {
                 width: 90%;
             }
-            /* Ajuste de vídeo para não ocupar a tela toda verticalmente no celular */
             .video-item video {
                 height: 380px;
             }
@@ -660,6 +689,18 @@
     </style>
 </head>
 <body>
+
+    <!-- ============================================================
+    CABEÇALHO (LOGO)
+    ============================================================ -->
+    <header class="cabecalho">
+        <div class="container">
+            <a href="#" class="logo" aria-label="Início">
+                <!-- INSERIR LINK DO LOGOTIPO AQUI -->
+                <img src="https://i.postimg.cc/T3z10Bz2/thaise-logo.jpg" alt="Logotipo Thaíse Rodolfo Fisioterapeuta" width="200" height="50" decoding="async" />
+            </a>
+        </div>
+    </header>
 
     <main>
         <!-- ============================================================
