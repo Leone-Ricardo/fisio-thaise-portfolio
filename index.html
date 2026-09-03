@@ -17,7 +17,6 @@
         }
 
         :root {
-            /* Cores baseadas na logo e postagens da Thaíse */
             --dourado: #C5A059;
             --dourado-claro: #E8D5A5;
             --dourado-escuro: #9A7B3E;
@@ -58,7 +57,7 @@
             color: var(--branco);
             border: none;
             padding: 14px 38px;
-            border-radius: 4px; /* Botão levemente mais quadrado para estética premium */
+            border-radius: 4px;
             font-weight: 500;
             font-size: 1rem;
             cursor: pointer;
@@ -170,7 +169,6 @@
             position: relative;
         }
         
-        /* Moldura de estilo "Arco" muito usada em clínicas de estética */
         .moldura-foto {
             width: 380px;
             height: 480px;
@@ -354,7 +352,7 @@
         .galeria-item img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Na estética, cover costuma ficar melhor para antes/depois se a arte tiver borda */
+            object-fit: cover; 
             transition: var(--transition);
             display: block;
         }
@@ -381,7 +379,7 @@
         .video-item {
             flex: 0 0 auto;
             width: 85%;
-            max-width: 320px; /* Formato retrato para procedimentos estéticos (Stories) */
+            max-width: 320px; 
             scroll-snap-align: center;
             background: var(--branco);
             border-radius: 8px;
@@ -558,58 +556,105 @@
         }
 
         /* ============================================================
-           RESPONSIVO
+           RESPONSIVO (Ajustes finos para Celulares e Tablets)
            ============================================================ */
-        @media (max-width: 900px) {
+        @media (max-width: 768px) {
             .hero-grid, .sobre-grid, .contato-grid {
                 grid-template-columns: 1fr;
                 text-align: center;
-                gap: 40px;
+                gap: 32px;
+            }
+            .hero-foto {
+                order: -1;
+                justify-content: center;
+            }
+            /* Redução do Arco para caber na tela sem gerar scroll lateral */
+            .moldura-foto {
+                width: 260px;
+                height: 340px;
+            }
+            .hero-conteudo h1 {
+                font-size: 2.3rem;
             }
             .hero-conteudo p, .sobre-grid p {
                 margin-left: auto;
                 margin-right: auto;
             }
-            .hero-foto {
-                justify-content: center;
-                order: -1;
-            }
             .hero-botoes, .selos-hero, .sobre-grid .lista-formacao li, .contato-info p {
                 justify-content: center;
             }
-            .moldura-foto {
-                width: 300px;
-                height: 380px;
-            }
-            .hero-conteudo h1 {
-                font-size: 2.4rem;
-            }
             .sobre-grid img {
+                height: auto;
+                max-height: 400px;
+            }
+            section {
+                padding: 50px 0;
+            }
+            .titulo-secao {
+                font-size: 2rem;
+            }
+            .subtitulo-secao {
+                margin-bottom: 32px;
+            }
+            /* Reduzindo o padding enorme das caixas de destaque */
+            .chamada-harmonizacao {
+                padding: 24px 16px;
+                margin-top: 24px;
+            }
+            .chamada-harmonizacao h3 {
+                font-size: 1.6rem;
+            }
+            .contato-grid {
+                padding: 24px 16px;
+                gap: 24px;
+            }
+            .video-item {
+                width: 85%;
+            }
+            .video-item video {
                 height: 400px;
             }
         }
 
         @media (max-width: 480px) {
-            section { padding: 50px 0; }
-            .titulo-secao { font-size: 2rem; }
+            .container {
+                padding: 0 16px; /* Mais respiro nas bordas laterais do celular */
+            }
             .moldura-foto {
-                width: 260px;
-                height: 330px;
+                width: 240px;
+                height: 310px;
+            }
+            .hero-conteudo h1 {
+                font-size: 2rem;
+            }
+            /* Forçando os botões a usarem 100% da tela para facilitar o clique */
+            .hero-botoes {
+                flex-direction: column;
+                width: 100%;
             }
             .btn-primario, .btn-secundario {
                 width: 100%;
                 text-align: center;
             }
+            /* Forçando cards a 1 coluna para não espremer imagens */
+            .cards-grid, .galeria-grid {
+                grid-template-columns: 1fr;
+            }
+            .sobre-grid img {
+                max-height: 300px;
+            }
             .video-item {
                 width: 90%;
             }
+            /* Ajuste de vídeo para não ocupar a tela toda verticalmente no celular */
             .video-item video {
-                height: 450px;
+                height: 380px;
             }
             .whatsapp-float {
                 bottom: 20px;
                 right: 20px;
                 padding: 12px 18px;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -630,7 +675,6 @@
                         A harmonização com naturalidade é a essência da verdadeira beleza. Descubra a sua melhor versão através da fisioterapia dermatofuncional.
                     </p>
                     <div class="hero-botoes">
-                        <!-- Substitua SEU_NUMERO pelo número do WhatsApp dela -->
                         <a href="https://wa.me/55SEUNUMERO" target="_blank" class="btn-primario">Agendar Avaliação</a>
                         <a href="#especialidades" class="btn-secundario">Ver Procedimentos</a>
                     </div>
@@ -641,8 +685,8 @@
                 </div>
                 <div class="hero-foto">
                     <div class="moldura-foto">
-                        <!-- INSERIR FOTO DA THAÍSE AQUI (Foto vertical elegante) -->
-                        <img src="https://i.postimg.cc/ydFSzLyX/1788463613822.jpg" alt="Fisioterapeuta Thaíse Rodolfo" width="380" height="480" decoding="async" />
+                        <!-- INSERIR FOTO DA THAÍSE AQUI -->
+                        <img src="https://i.postimg.cc/ydFSzLyX/1788463613822.jp" alt="Fisioterapeuta Thaíse Rodolfo" width="380" height="480" decoding="async" />
                     </div>
                 </div>
             </div>
@@ -690,7 +734,6 @@
                     <!-- CARD 1: BOTOX -->
                     <div class="card">
                         <div class="card-img-area">
-                            <!-- Inserir imagem de aplicação de botox ou rosto limpo -->
                             <img src="https://i.postimg.cc/SEU-LINK-BOTOX-AQUI.jpg" alt="Toxina Botulínica" loading="lazy" decoding="async" />
                         </div>
                         <h4>Toxina Botulínica</h4>
@@ -700,7 +743,6 @@
                     <!-- CARD 2: LIMPEZA DE PELE -->
                     <div class="card">
                         <div class="card-img-area">
-                            <!-- Inserir imagem de skincare / limpeza de pele -->
                             <img src="https://i.postimg.cc/SEU-LINK-PELE-AQUI.jpg" alt="Limpeza de Pele Profunda" loading="lazy" decoding="async" />
                         </div>
                         <h4>Limpeza de Pele</h4>
@@ -710,7 +752,6 @@
                     <!-- CARD 3: PROTOCOLO DE GORDURA -->
                     <div class="card">
                         <div class="card-img-area">
-                            <!-- Inserir imagem corporal / equipamento de estética -->
                               <img src="https://i.postimg.cc/SEU-LINK-GORDURA-AQUI.jpg" alt="Protocolo de Gordura Localizada" loading="lazy" decoding="async" />
                         </div>
                         <h4>Protocolo Corporal</h4>
@@ -736,7 +777,6 @@
                     Alguns dos protocolos faciais e corporais realizados no consultório.
                 </p>
                 <div class="galeria-grid">
-                    <!-- Substitua os links pelas fotos de ANTES/DEPOIS dela (formato 4:3 ou quadrado é ideal) -->
                     <div class="galeria-item">
                         <img src="https://i.postimg.cc/LINK-ANTES-DEPOIS-1.jpg" alt="Resultado de Tratamento Estético" loading="lazy" decoding="async" />
                     </div>
@@ -751,7 +791,7 @@
         </section>
 
         <!-- ============================================================
-        VÍDEOS (Resultados em Movimento)
+        VÍDEOS
         ============================================================ -->
         <section id="videos" class="bg-nude">
             <div class="container">
@@ -764,7 +804,6 @@
                     <button class="carrossel-btn esquerda" onclick="moverCarrossel(-1)" aria-label="Anterior">‹</button>
                     <div class="video-carrossel" id="videoCarrossel">
                         
-                        <!-- VÍDEO 1 -->
                         <div class="video-item">
                             <video controls loop playsinline preload="metadata">
                                 <source src="caminho-video-botox.mp4" type="video/mp4">
@@ -773,7 +812,6 @@
                             <div class="video-descricao">Aplicação de Toxina Botulínica</div>
                         </div>
 
-                        <!-- VÍDEO 2 -->
                         <div class="video-item">
                             <video controls loop playsinline preload="metadata">
                                 <source src="caminho-video-corporal.mp4" type="video/mp4">
@@ -782,7 +820,6 @@
                             <div class="video-descricao">Protocolo de Redução de Medidas</div>
                         </div>
 
-                        <!-- VÍDEO 3 -->
                         <div class="video-item">
                             <video controls loop playsinline preload="metadata">
                                 <source src="caminho-video-facial.mp4" type="video/mp4">
@@ -867,7 +904,6 @@
                         </a>
                     </div>
                     <div>
-                        <!-- Substitua o src pelo iframe do Google Maps do consultório dela -->
                         <iframe style="width: 100%; height: 260px; border-radius: 8px; border: 0;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117578.47285642533!2d-43.63943362141512!3d-22.905658117765176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9be432d9dbf45d%3A0xeab4e1d75f284c00!2sCampo%20Grande%2C%20Rio%20de%20Janeiro%20-%20RJ!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
